@@ -1,0 +1,29 @@
+<h2>Dados Imóvel</h2>
+<form action="">
+    <div>
+        <label for="tipo-imovel">Tipo do Imóvel</label>
+        <input type="text" class="form-control" id="tipo-imovel" formControlName= "tipo-imovel">
+    </div>
+    <div>
+        <label for="renda">Renda mensal</label>
+        <input type="text" class="form-control" id="renda" formControlName= "renda">
+    </div>
+    <div>
+        <label for="valor-imovel">Valor do Imóvel</label>
+        <input type="text" class="form-control" id="valor-imovel" formControlName= "valor-imovel">
+    </div>
+    <div>
+        <label for="entrada">Valor da entrada</label>
+        <input type="text" class="form-control" id="entrada" formControlName= "entrada">
+    </div>
+    <div>
+        <label for="parcela">Em quantas parcelas deseja parcelar?</label>
+        <input type="text" class="form-control" id="parcela" formControlName= "parcela">
+    </div>
+    <a routerLink="/proponente">
+        <button mat-raised-button class="btn-1">Voltar</button>
+      </a>
+    <a routerLink="/imovel">
+        <button mat-raised-button class="btn-2">Simular</button>
+      </a>
+</form>

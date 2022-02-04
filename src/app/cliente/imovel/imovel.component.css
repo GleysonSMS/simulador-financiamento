@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form-control {
+    border: 1px lightgray solid;
+    border-radius: 2px;
+    position: relative;
+    margin: 5px;
+    font-size: 12px;
+
+}
+
+.form-control {
+  padding: 10px;
+}
+
+.btn-2{
+    background-color: rgb(78, 4, 148);
+    color: white;
+
+}
+
+.btn-1{
+    color: rgb(78, 4, 148);
+}
