@@ -1,77 +1,90 @@
 <h2>Dados do Proponente</h2>
 <form class="form" [formGroup]= "proponente" (submit)="submitForm()">
 
-    <mat-form-field class="container">
-        <div class="div1">
-            <mat-label for="nome">Nome</mat-label>
-            <input type="text" class="form-control" id="nome">
-                <mat-error *ngIf="proponente.hasError('nome') && !proponente.hasError('required')">
-                    Preencha com um nome válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
+<mat-card class="card">
+    <div class="container">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label for="nome">Nome Completo </mat-label>
+            <input matInput type="text" class="form-control" id="nome" formControlName= "nome">
+                <mat-hint>Preencha com seu nome completo</mat-hint>
+                <mat-error *ngIf="proponente.get('nome')hasError('nome') && !proponente.hasError('required')">
                     Campo Obrigatório
                 </mat-error>
+        </mat-form-field>     
+    </div>
 
+    <div>
+        <mat-form-field appearance="outline">
             <mat-label for="profissao">Profissão</mat-label>
-            <input type="text" class="form-control" id="profissao" formControlName= "profissao">
-                <mat-error *ngIf="proponente.hasError('profissao') && !proponente.hasError('required')">
-                    Preencha com uma profissao válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
+            <input matInput type="text" class="form-control" id="profissao" formControlName= "profissao">
+                <mat-hint>Preencha com sua profissão</mat-hint>
+                <mat-error *ngIf="proponente.get('profissao')hasError('profissao') && !proponente.hasError('required')">
                     Campo Obrigatório
                 </mat-error>
+        </mat-form-field>     
+    </div>
 
+    <div>
+        <mat-form-field appearance="outline">  
             <mat-label for="cpf">CPF</mat-label>
-            <input type="text" class="form-control" id="cpf" formControlName= "cpf">
-                <mat-error *ngIf="proponente.hasError('cpf') && !proponente.hasError('required')">
-                    Preencha com um cpf válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
+            <input matInput type="text" class="form-control" id="cpf" formControlName= "cpf">
+                <mat-hint>Preencha com seu CPF</mat-hint>
+                <mat-error *ngIf="proponente.get('cpf')hasError('cpf') && !proponente.hasError('required')">
                     CPF deve ter 11 dígitos
                 </mat-error>
-        </div>
+        </mat-form-field>   
+    </div>
 
-        <div class="div2">
+    <div>
+        <mat-form-field appearance="outline">
             <mat-label for="email">Email</mat-label>
-            <input  type="email" class="form-control" id="email">
-                <mat-error *ngIf="proponente.hasError('email') && !proponente.hasError('required')">
+            <input matInput type="email" class="form-control" id="email" formControlName= "email">
+                <mat-hint>Preencha com um Email Válido</mat-hint>
+                <mat-error *ngIf="proponente.get('email')hasError('email') && !proponente.hasError('required')">
                     Preencha com um Email válido
                 </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
-                    Preencha com um Email válido
-                </mat-error>
+        </mat-form-field>   
+    </div>
 
-            <mat-label for="data-nascimento">Data de Nascimento</mat-label>
-            <input type="text" class="form-control" id="data-nascimento" formControlName= "data-nascimento">
-                <mat-error *ngIf="proponente.hasError('data-nascimento') && !proponente.hasError('required')">
-                    Preencha com uma data-nascimento válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
+    <div>
+        <mat-form-field appearance="outline"> 
+            <mat-label for="data">Data de Nascimento</mat-label>
+            <input matInput type="text" class="form-control" id="data" formControlName= "data">
+                <mat-hint>Preencha com sua data de Nascimento</mat-hint>
+                <mat-error *ngIf="proponente.get('data')hasError('data') && !proponente.hasError('required')">
                     Dado Obrigatório
                 </mat-error>
-
+        </mat-form-field>  
+    </div>
+    
+    <div>
+        <mat-form-field appearance="outline">
             <mat-label for="cep">CEP</mat-label>
-            <input type="number" class="form-control" id="cep" formControlName= "cep">
-                <mat-error *ngIf="proponente.hasError('cep') && !proponente.hasError('required')">
-                    Preencha com um cep válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
+            <input matInput type="text" class="form-control" id="cep" formControlName= "cep">
+                <mat-hint>Preencha com o Cep</mat-hint>
+                <mat-error *ngIf="proponente.get('cep')hasError('cep') && !proponente.hasError('required')">
                     Cep deve conter 9 digítos
                 </mat-error>
+        </mat-form-field>           
         </div>
 
-        <div class="div3">
+    <div>
+        <mat-form-field appearance="outline">  
             <mat-label for="telefone">Celular</mat-label>
-            <input type="tel" class="form-control" id="telefone" formControlName= "telefone">
-                <mat-error *ngIf="proponente.hasError('telefone') && !proponente.hasError('required')">
-                    Preencha com um telefone válido
-                </mat-error>
-                <mat-error *ngIf="proponente.hasError('required')">
-                    Cep deve conter 11 digítos
-                </mat-error>     
-        </div>
+            <input matInput type="tel" class="form-control" id="telefone" formControlName= "telefone">
+                <mat-hint>Preencha com seu celular</mat-hint>
+                <mat-error *ngIf="proponente.get('telefone')hasError('telefone') && !proponente.hasError('required')">
+                    Preencha com seu celular
+                </mat-error> 
+        </mat-form-field>       
+    </div>
+    </div>
+    
+    <mat-divider class="divider"></mat-divider>
 
-        <div class="div4">    
+        <div class="button">   
+             
             <a routerLink="/inicial" class="cancelar">
                 <button mat-raised-button class="btn-1">Cancelar</button>
             </a>
@@ -79,6 +92,5 @@
                 <button [disabled]="submittingForm || proponente.invalid" type="submit" mat-raised-button class="btn-2">Continuar</button>
             </a>
         </div>
-    </mat-form-field>
-
+</mat-card>
 </form>
