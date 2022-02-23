@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {IMaskModule} from 'angular-imask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { MenuComponent } from './cliente/menu/menu.component';
     MatInputModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    IMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

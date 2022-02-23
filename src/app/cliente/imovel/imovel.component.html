@@ -1,29 +1,82 @@
-<h2>Dados Imóvel</h2>
-<form action="">
+<h2 class="h2">Dados Imóvel</h2>
+<form class="form" [formGroup]= "imovel" (submit)="submitForm()">
+
+<mat-card class="card">
+    <div class="container">
     <div>
-        <label for="tipo-imovel">Tipo do Imóvel</label>
-        <input type="text" class="form-control" id="tipo-imovel" formControlName= "tipo-imovel">
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo do Imóvel</mat-label>
+            <select matNativeControl formControlName="tipoImovel">
+              <option value="" selected></option>
+              <option value="residencial">residencial</option>
+              <option value="comercial">Comercial</option>
+            </select>
+                <mat-hint>preencha com o tipo de Imóvel</mat-hint>
+                <mat-error *ngIf="imovel.get('tipoImovel')?.hasError('tipoImovel')">
+                    Campo Obrigatório
+                </mat-error>
+        </mat-form-field>     
     </div>
+
     <div>
-        <label for="renda">Renda mensal</label>
-        <input type="text" class="form-control" id="renda" formControlName= "renda">
+        <mat-form-field appearance="outline">
+            <mat-label for="renda">Renda Mensal</mat-label>
+            <input matInput type="text" class="form-control" id="renda" formControlName= "renda">
+                <mat-hint>Preencha com sua Renda Mensal</mat-hint>
+                <mat-error *ngIf="imovel.get('renda')?.hasError('renda')">
+                    Preencha com sua Renda Mensal
+                </mat-error>
+        </mat-form-field>     
     </div>
+
     <div>
-        <label for="valor-imovel">Valor do Imóvel</label>
-        <input type="text" class="form-control" id="valor-imovel" formControlName= "valor-imovel">
+        <mat-form-field appearance="outline">  
+            <mat-label for="valorImovel">Valor do imóvel</mat-label>
+            <input matInput type="text" class="form-control" id="valorImovel" formControlName= "valorImovel">
+                <mat-hint>Preencha com o valor do imóvel desejado</mat-hint>
+                <mat-error *ngIf="imovel.get('valorImovel')?.hasError('valorImovel')">
+                    Preencha com o valor do imóvel desejado
+                </mat-error>
+        </mat-form-field>   
     </div>
+
     <div>
-        <label for="entrada">Valor da entrada</label>
-        <input type="text" class="form-control" id="entrada" formControlName= "entrada">
+        <mat-form-field appearance="outline">
+            <mat-label for="valorEntrada">Valor de entrada</mat-label>
+            <input matInput type="text" class="form-control" id="valorEntrada" formControlName= "valorEntrada">
+                <mat-hint>Preencha com no mínimo 20% do valor do imóvel</mat-hint>
+                <mat-error *ngIf="imovel.get('valorEntrada')?.hasError('validarEntrada')">
+                    Preencha com no mínimo 20% do valor do imóvel
+                </mat-error>
+        </mat-form-field>   
     </div>
+
     <div>
-        <label for="parcela">Em quantas parcelas deseja parcelar?</label>
-        <input type="text" class="form-control" id="parcela" formControlName= "parcela">
+        <mat-form-field appearance="outline"> 
+            <mat-label for="parcela">Em quantas parcelas deseja parcelar?</mat-label>
+            <input matInput type="text" class="form-control" id="parcela" formControlName= "parcela">
+                <mat-hint>Preencha no maximo 360 parcelas</mat-hint>
+                <mat-error *ngIf="imovel.get('parcela')?.hasError('parcelas')">
+                    Preencha no maximo 360 parcelas
+                </mat-error>
+        </mat-form-field>  
     </div>
-    <a routerLink="/proponente">
-        <button mat-raised-button class="btn-1">Voltar</button>
-      </a>
-    <a routerLink="/imovel">
-        <button mat-raised-button class="btn-2">Simular</button>
-      </a>
+
+    </div>
+    
+    <mat-divider class="divider"></mat-divider>
+
+        <div class="button">   
+             
+            <a routerLink="/proponente" class="cancelar">
+                <button mat-raised-button class="btn-1">Cancelar</button>
+            </a>
+            <a class="submit">
+                <button [disabled]="imovel.invalid" type="submit" mat-raised-button class="btn-2">Continuar</button>
+            </a>
+        </div>
+</mat-card>
 </form>
+
+{{ imovel.value | json }}
+{{ imovel.valid }}

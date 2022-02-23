@@ -1,9 +1,14 @@
 export class cliente{
     nome: string='';
     profissao: string = '';
-   /* CPF: number = null;
+    CPF: string = '';
     email: string='';
-    data: Date= null;
+    data: string= '';
     cep: string='';
-    celular: number='';*/
+    celular: string ='';
+    tipo: string ='';
+    renda: string = '';
+    valorimovel: string ='';
+    valorEntrada: string = '';
+    parcelas: string = '';
 }

@@ -1,49 +1,93 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { validacao } from './validacao';
 
 @Component({
   selector: 'app-proponente',
   templateUrl: './proponente.component.html',
-  styleUrls: ['./proponente.component.css']
+  styleUrls: ['./proponente.component.css'],
 })
 export class ProponenteComponent implements OnInit {
-
-  proponente!: FormGroup;
+  proponenteForm!: FormGroup;
   submittingForm: boolean = false;
-  ///currentAction: String;
-
 
   constructor(
     private FormBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-  ///  this.setCurrentAction();
     this.buildProponente();
   }
 
-  private buildProponente(){
-    this.proponente = this.FormBuilder.group({
-      nome:['',Validators.compose ([Validators.required, Validators.minLength(10), Validators.pattern('[a-zA-Z ]*')])],
-      profissao:['',Validators.compose ([Validators.required,Validators.minLength(2), Validators.pattern('[a-zA-Z ]*')])],
-      cpf:['',Validators.compose ([Validators.required,Validators.minLength(11), Validators.maxLength(11), Validators.pattern('[1-9 ]*')])],
-      email:['',Validators.compose ([Validators.required, Validators.email])],
-      data:['',Validators.compose ([Validators.required, Validators.minLength(2)])],
-      cep:['',Validators.compose ([Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern('[1-9 ]*')])],
-      telefone:['',Validators.compose ([Validators.required, Validators.minLength(11),Validators.maxLength(11), Validators.pattern('[1-9 ]*')])]
-    })
-  }
-  submitForm(){
-    this.submittingForm = true;
+  private buildProponente() {
+    this.proponenteForm = this.FormBuilder.group({
+      nome: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern('[a-zA-Z ]*'),
+        ]),
+      ],
+      profissao: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[a-zA-Z ]*'),
+        ]),
+      ],
+      cpf: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(14),
+          Validators.maxLength(14),
+          Validators.pattern('[0-9-.]*'),
+        ]),
+      ],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      data: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(10)]),
+      ],
+      cep: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(9),
+          Validators.maxLength(9),
+          Validators.pattern('[0-9-]*'),
+        ]),
+      ],
+      telefone: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(14),
+          Validators.maxLength(14),
+          Validators.pattern('[0-9()-]*'),
+        ]),
+      ],
+    });
   }
 
-/*  private setCurrentAction(){
-    if (this.route.snapshot.url[0].path == "new")
-      this.currentAction = "new"
-   else
-      this.currentAction = "edit"
-  }*/
+  submitForm() {
+    if (this.proponenteForm.valid) {
+      this.submittingForm = true;
+      this.router.navigate(['/imovel']);
+    }
+  }
+
+  get nome() {
+    return this.proponenteForm.get('nome');
+  }
 }

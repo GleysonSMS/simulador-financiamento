@@ -1,20 +1,17 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.card{
+    margin: 1%;
 }
 
-.form-control {
-    border: 1px lightgray solid;
-    border-radius: 2px;
-    position: relative;
-    margin: 5px;
-    font-size: 12px;
-
+.container{
+    margin: 1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.form-control {
-  padding: 10px;
+.button{
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
 }
 
 .btn-2{
@@ -25,4 +22,10 @@
 
 .btn-1{
     color: rgb(78, 4, 148);
+}
+
+.h2{
+    font-size: 100% ;
+    padding: 5px;
+    margin-left: 1%;
 }
