@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProponenteStorageService } from './proponente-storage.service';
 import { validacao } from './validacao';
 
 @Component({
@@ -20,7 +21,8 @@ export class ProponenteComponent implements OnInit {
   constructor(
     private FormBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private proponenteStorage: ProponenteStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -82,6 +84,16 @@ export class ProponenteComponent implements OnInit {
 
   submitForm() {
     if (this.proponenteForm.valid) {
+      const proponenteObj = {
+        nome: this.nome?.value,
+        profissao: this.profissao?.value,
+        cpf: this.cpf?.value,
+        email: this.email?.value,
+        data: this.data?.value,
+        cep: this.cep?.value,
+        telefone: this.telefone?.value,
+      }
+      this.proponenteStorage.setPropoente(proponenteObj)
       this.submittingForm = true;
       this.router.navigate(['/imovel']);
     }
@@ -89,5 +101,23 @@ export class ProponenteComponent implements OnInit {
 
   get nome() {
     return this.proponenteForm.get('nome');
+  }
+  get profissao() {
+    return this.proponenteForm.get('profissao');
+  }
+  get cpf() {
+    return this.proponenteForm.get('cpf');
+  }
+  get email() {
+    return this.proponenteForm.get('email');
+  }
+  get data() {
+    return this.proponenteForm.get('data');
+  }
+  get cep() {
+    return this.proponenteForm.get('cep');
+  }
+  get telefone() {
+    return this.proponenteForm.get('telefone');
   }
 }

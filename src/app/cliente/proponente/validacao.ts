@@ -12,7 +12,7 @@ export class validacao {
       if (dataAtual.getMonth() < datanascimento.getMonth()) {
         anos--;
         if(anos >= 18){
-           return null
+           return false
         }
         else{
           return {idade:'tem que ter 18 anos ou mais'}
