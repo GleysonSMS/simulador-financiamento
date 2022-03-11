@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ImovelService {
-  private url = environment.baseUrl + 'http://localhost:3000/proposta';
+  private url = environment.baseUrl + '/proposta';
 
   constructor(private http: HttpClient) {}
 

@@ -14,6 +14,8 @@ export interface IImovel {
     valorimovel: number;
     valorEntrada: number;
     parcela: number;
+    valorTotalAprovado:number;
+    parcelaInicial:number;
   };
 }
 

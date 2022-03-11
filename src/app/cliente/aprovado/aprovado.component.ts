@@ -22,13 +22,7 @@ export class AprovadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.imovel = this.imovelStorage.getImovel();
-    this.valorImovel = this.imovel?.imovel.valorimovel;
-    this.valorEntrada = this.imovel?.imovel.valorEntrada;
-    this.valorTotalAprovado = this.valorImovel - this.valorEntrada;
-    this.parcelaInicial =
-      (this.valorTotalAprovado *
-        (100 + (0.1 * Number(this.imovel?.imovel.parcela)) / 12)) /
-      100 /
-      Number(this.imovel?.imovel.parcela);
+      this.valorTotalAprovado=this.imovel?.imovel.valorTotalAprovado
+      this.parcelaInicial = this.imovel?.imovel.parcelaInicial
   }
 }

@@ -72,6 +72,12 @@ export class ImovelComponent implements OnInit {
   }
 
   submitForm() {
+    let valorTotalAprovado =
+      Number(this.valorImovel?.value) - Number(this.valorEntrada?.value);
+    let parcelaInicial =
+      (valorTotalAprovado * (100 + (0.1 * Number(this.parcela?.value)) / 12)) /
+      100 /
+      Number(this.parcela?.value);
     if (this.imovel.valid) {
       const proposta = {
         proponente: this.proponente,
@@ -81,37 +87,28 @@ export class ImovelComponent implements OnInit {
           valorimovel: this.valorImovel?.value,
           valorEntrada: this.valorEntrada?.value,
           parcela: this.parcela?.value,
+          valorTotalAprovado,
+          parcelaInicial,
         },
       };
 
-      fetch('http://localhost:3000/proposta', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      this.imovelService.saveProposta(proposta).subscribe({
+        next: (response: any) => {
+          console.log('Acesso ao backend: ', response);
+          if (
+            Number(parcelaInicial + this.renda?.value) <=
+            Number(this.renda?.value * 0.3)
+          ) {
+            this.imovelStorage.setImovel(proposta);
+            this.router.navigate(['/aprovado']);
+          } else {
+            this.router.navigate(['/reprovado']);
+          }
         },
-        body: JSON.stringify({ dados: proposta }),
-      }).then((resposta) => resposta.json());
-
-      let valorTotalAprovado =
-        Number(this.valorImovel?.value) - Number(this.valorEntrada?.value);
-      let parcelaInicial =
-        (valorTotalAprovado *
-          (100 + (0.1 * Number(this.parcela?.value)) / 12)) /
-        100 /
-        Number(this.parcela?.value);
-      if (
-        Number(parcelaInicial + this.renda?.value) <=
-        Number(this.renda?.value * 0.3)
-      ) {
-        this.router.navigate(['/aprovado']);
-      } else {
-        this.router.navigate(['/reprovado']);
-      }
-
-      // aqui dentro você vai chamar a tela de aprovado
-      // precisa aplicar um IF da tela de 30%
-
-      this.imovelStorage.setImovel(proposta);
+        error: (error: any) => {
+          console.error('Erro ao salvar no backend: ', error);
+        },
+      });
     }
   }
   get tipoImovel() {
