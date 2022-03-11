@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProponenteStorageService {
   proponente: any;
 
-  constructor() { }
+  constructor() {}
 
-  getProponente(){
+  getProponente() {
     return this.proponente;
   }
-  setPropoente(proponente:any){
+  setProponente(proponente: any) {
     this.proponente = proponente;
   }
 }

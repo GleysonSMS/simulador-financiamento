@@ -1,32 +1,35 @@
-.card{
-    margin: 1%;
+.card {
+  margin: 1%;
+}
+mat-form-field {
+  width: 95%;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.container{
-    margin: 1%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
 }
 
-.button{
-    display: flex;
-    justify-content: space-between;
-    margin: 1%;
+.btn-2 {
+  background-color: rgb(78, 4, 148);
+  color: white;
+  width: 100%;
+  height: 90%;
 }
 
-.btn-2{
-    background-color: rgb(78, 4, 148);
-    color: white;
-
+.btn-1 {
+  color: rgb(78, 4, 148);
+  width: 100%;
+  height: 90%;
 }
 
-.btn-1{
-    color: rgb(78, 4, 148);
+.h2 {
+  font-size: 130%;
+  padding: 5px;
+  margin-left: 1%;
 }
-
-.h2{
-    font-size: 100% ;
-    padding: 5px;
-    margin-left: 1%;
-}
-

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -22,7 +21,7 @@ export class ProponenteComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private proponenteStorage: ProponenteStorageService,
+    private proponenteStorage: ProponenteStorageService
   ) {}
 
   ngOnInit(): void {
@@ -59,7 +58,11 @@ export class ProponenteComponent implements OnInit {
       email: ['', Validators.compose([Validators.required, Validators.email])],
       data: [
         '',
-        Validators.compose([Validators.required, Validators.minLength(10)]),
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(10),
+          validacao.validarData,
+        ]),
       ],
       cep: [
         '',
@@ -92,8 +95,8 @@ export class ProponenteComponent implements OnInit {
         data: this.data?.value,
         cep: this.cep?.value,
         telefone: this.telefone?.value,
-      }
-      this.proponenteStorage.setPropoente(proponenteObj)
+      };
+      this.proponenteStorage.setProponente(proponenteObj);
       this.submittingForm = true;
       this.router.navigate(['/imovel']);
     }

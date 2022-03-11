@@ -1,35 +1,26 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class validacao {
-  static validarData(data: AbstractControl) {
-    let dataAtual = new Date();
-    let datanascimento = new Date(data.value);
-    let anos = dataAtual.getFullYear() - datanascimento.getFullYear();
+  static validarData(input: AbstractControl) {
+    let data = input.value;
+    const dataSplit = data.split('/');
+    const day = dataSplit[0];
+    const month = dataSplit[1];
+    const year = dataSplit[2];
+    data = new Date(year, month - 1, day);
+    const now = new Date();
+    const past = new Date(data);
+    const diff = Math.abs(now.getTime() - past.getTime());
+    const anos = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365));
 
-    if (dataAtual.getMonth() != datanascimento.getMonth()) {
-      if (dataAtual.getMonth() < datanascimento.getMonth()) {
-        anos--;
-        if(anos >= 18){
-           return false
-        }
-        else{
-          return {idade:'tem que ter 18 anos ou mais'}
-        }
-      }
+    if (now <= past) {
+      return { idade: 'Preencha com sua data de Nascimento válida' };
+    } else if (anos >= 18) {
+      return null;
     } else {
-      if (dataAtual.getDate() < datanascimento.getDate()) {
-        anos--;
-        if(anos >= 18){
-          return null
-       }
-       else{
-         return {idade:'tem que ter 18 anos ou mais'}
-       }
-        
-      }
+      return { idade: 'Preencha com sua data de Nascimento válida' };
     }
-    return anos;
   }
 }

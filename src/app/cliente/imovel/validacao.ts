@@ -16,7 +16,7 @@ export class validacao {
     const valor = input.parent?.get('valorImovel')?.value;
     const entrada = input.parent?.get('valorEntrada')?.value;
 
-    if (entrada < (valor * 0.2)) {
+    if (entrada < valor * 0.2) {
       return { entrada: 'Preencha com no mínimo 20% do valor do imóvel' };
     } else {
       return null;

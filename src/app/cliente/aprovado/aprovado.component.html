@@ -1,0 +1,32 @@
+<h2 class="h2">Aprovado</h2>
+<mat-card class="card">
+  <div class="div">
+    <h1><b>Proposta N° 00001</b></h1>
+    <div>
+      <img class="img4" [src]="image" />
+    </div>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <Section>
+      <p>
+        <b>
+          • Taxa de 8% ao ano para correntistas<br />
+          • Taxa de 10% ao ano para não correntistas<br />
+          • Parcela inicial:
+          {{ parcelaInicial | currency: "BRL":"symbol":"1.2" }} <br />
+          • Valor total aprovado:
+          {{ valorTotalAprovado | currency: "BRL":"symbol":"1.2" }} <br />
+          • Seguro Só Vamu Security.<br />
+          • Desconto na primeira e na última parcela
+        </b>
+      </p>
+    </Section>
+
+    <div class="button">
+      <a href="http://localhost:4200/inicial" class="voltar">
+        <button mat-raised-button class="btn-1">Ir para tela inicial</button>
+      </a>
+    </div>
+  </div>
+</mat-card>

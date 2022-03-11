@@ -1,0 +1,23 @@
+.h2 {
+  font-size: 100%;
+  margin-left: 1%;
+}
+
+.div {
+  text-align: center;
+}
+
+.card {
+  margin: 1%;
+}
+
+.img4 {
+  float: center;
+  width: 25%;
+  margin-top: 2.5%;
+}
+
+.btn-1 {
+  background-color: rgb(78, 4, 148);
+  color: white;
+}

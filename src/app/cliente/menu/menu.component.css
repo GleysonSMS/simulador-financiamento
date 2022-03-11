@@ -1,43 +1,39 @@
-body{
-    background-color: gainsboro
-}
-.card{
-    margin: 1%;
-    padding: 1%;
+.card {
+  margin: 1%;
+  padding: 1%;
 }
 
-.h2{
-    font-size: 100% ;
-    padding: 5px;
-    margin-left: 1%;
+.h2 {
+  font-size: 130%;
+
+  margin-left: 1%;
 }
 
-.h3{
-    font-size: 250%;
-    padding: 1%;
-    margin-left: 10px;
+.h3 {
+  font-size: 250%;
+  padding: 1%;
+  margin-left: 10px;
 }
 
-.p{
-    font-size: 150%;  
-    margin-top: 3%;
+.p {
+  font-size: 150%;
+  margin-top: 3%;
 }
 
-.text{
-    text-align: center;
-    padding: 30px;
+.text {
+  text-align: center;
 }
 
-.img2{
-    opacity: 0.5;
-    float: right;
-    width: 25%;
-    margin-top: 2.5%;
+.img2 {
+  opacity: 0.5;
+  float: right;
+  width: 25%;
+  margin-top: 6.5%;
 }
 
-.btn{
-    width: 300px;
-    background-color: rgb(78, 4, 148);
-    color: white;
-    margin-top: 2%;
+.btn {
+  width: 300px;
+  background-color: rgb(78, 4, 148);
+  color: white;
+  margin-top: 2%;
 }
