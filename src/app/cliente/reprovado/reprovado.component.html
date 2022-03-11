@@ -1,29 +1,38 @@
-<h2 class="h2">Reprovado</h2>
+<h2 class="h2" tabindex="1">Reprovado</h2>
 <mat-card class="card">
   <div class="div">
-    <h1><b>Proposta N° 00001</b></h1>
-    <div>
-      <img class="img3" [src]="image" />
+    <p class="p" tabindex="2"><b>Proposta N° 00001</b></p>
+    <div tabindex="2">
+      <img class="img3" alt="status reprovado" [src]="image" />
     </div>
     <mat-divider class="divider"></mat-divider>
 
-    <Section
-      ><b>
-        Infelizmente não foi possível aprovar seu financiamento.<br />
-        Não desanime, reuniremos algumas dicas que podem ajudar na sua próxima
-        simulação:</b
-      >
+    <Section tabindex="2"
+      ><p>
+        <b> Infelizmente não foi possível aprovar seu financiamento. </b><br />
+      </p>
       <p>
         <b>
-          • Mantenha seu CPF em dua e sem restrições.<br />
-          • Dados de endereço, e-mail, telefone sempre atualizados.<br />
-          • Melhore seu relacionamento com o banco, movimentando sua conta.
-        </b>
+          Não desanime, reuniremos algumas dicas que podem ajudar na sua próxima
+          simulação:</b
+        >
+      </p>
+      <br />
+      <p></p>
+
+      <p><b> • Mantenha seu CPF em dua e sem restrições.</b><br /></p>
+      <p>
+        <b> • Dados de endereço, e-mail, telefone sempre atualizados.</b><br />
+      </p>
+      <p>
+        <b>
+          • Melhore seu relacionamento com o banco, movimentando sua conta.</b
+        >
       </p>
     </Section>
 
     <div class="button">
-      <a href="http://localhost:4200/inicial" class="voltar">
+      <a href="http://localhost:4200/inicial" class="voltar" tabindex="2">
         <button mat-raised-button class="btn-1">Ir para tela inicial</button>
       </a>
     </div>

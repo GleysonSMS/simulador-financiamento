@@ -1,114 +1,118 @@
 <h2 class="h2" tabindex="1">Dados Imóvel</h2>
-<form class="form" [formGroup]="imovel" (submit)="submitForm()">
-  <mat-card class="card">
-    <div class="container">
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label> Tipo do Imóvel</mat-label>
-          <select matNativeControl formControlName="tipoImovel">
-            <option value="" selected></option>
-            <option value="residencial">residencial</option>
-            <option value="comercial">Comercial</option>
-          </select>
-          <mat-hint>preencha com o tipo de Imóvel</mat-hint>
-          <mat-error *ngIf="imovel.get('tipoImovel')?.hasError('tipoImovel')">
-            Campo Obrigatório
-          </mat-error>
-        </mat-form-field>
+<section>
+  <form class="form" [formGroup]="imovel" (submit)="submitForm()">
+    <mat-card class="card">
+      <div class="container">
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label> Tipo do Imóvel</mat-label>
+            <select matNativeControl formControlName="tipoImovel">
+              <option value="" selected></option>
+              <option value="residencial">residencial</option>
+              <option value="comercial">Comercial</option>
+            </select>
+            <mat-hint>preencha com o tipo de Imóvel</mat-hint>
+            <mat-error *ngIf="imovel.get('tipoImovel')?.hasError('tipoImovel')">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="renda">Renda Mensal</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="renda"
+              formControlName="renda"
+            />
+            <mat-hint>Preencha com sua Renda Mensal</mat-hint>
+            <mat-error *ngIf="imovel.get('renda')?.hasError('renda')">
+              Preencha com sua Renda Mensal
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="valorImovel">Valor do imóvel</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="valorImovel"
+              formControlName="valorImovel"
+            />
+            <mat-hint>Preencha com o valor do imóvel desejado</mat-hint>
+            <mat-error
+              *ngIf="imovel.get('valorImovel')?.hasError('valorImovel')"
+            >
+              Preencha com o valor do imóvel desejado
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="valorEntrada">Valor de entrada</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="valorEntrada"
+              formControlName="valorEntrada"
+            />
+            <mat-hint>Preencha com no mínimo 20% do valor do imóvel</mat-hint>
+            <mat-error
+              *ngIf="imovel.get('valorEntrada')?.hasError('validarEntrada')"
+            >
+              Preencha com no mínimo 20% do valor do imóvel
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="parcela"
+              >Em quantas parcelas deseja parcelar?</mat-label
+            >
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="parcela"
+              formControlName="parcela"
+            />
+            <mat-hint>Preencha no maximo 360 parcelas</mat-hint>
+            <mat-error *ngIf="imovel.get('parcela')?.hasError('parcelas')">
+              Preencha no maximo 360 parcelas
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="renda">Renda Mensal</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="renda"
-            formControlName="renda"
-          />
-          <mat-hint>Preencha com sua Renda Mensal</mat-hint>
-          <mat-error *ngIf="imovel.get('renda')?.hasError('renda')">
-            Preencha com sua Renda Mensal
-          </mat-error>
-        </mat-form-field>
-      </div>
+      <mat-divider class="divider"></mat-divider>
 
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="valorImovel">Valor do imóvel</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="valorImovel"
-            formControlName="valorImovel"
-          />
-          <mat-hint>Preencha com o valor do imóvel desejado</mat-hint>
-          <mat-error *ngIf="imovel.get('valorImovel')?.hasError('valorImovel')">
-            Preencha com o valor do imóvel desejado
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="valorEntrada">Valor de entrada</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="valorEntrada"
-            formControlName="valorEntrada"
-          />
-          <mat-hint>Preencha com no mínimo 20% do valor do imóvel</mat-hint>
-          <mat-error
-            *ngIf="imovel.get('valorEntrada')?.hasError('validarEntrada')"
+      <div class="button">
+        <a routerLink="/proponente" class="cancelar">
+          <button mat-raised-button class="btn-1">VOLTAR</button>
+        </a>
+        <a class="submit">
+          <button
+            [disabled]="imovel.invalid"
+            type="submit"
+            mat-raised-button
+            class="btn-2"
           >
-            Preencha com no mínimo 20% do valor do imóvel
-          </mat-error>
-        </mat-form-field>
+            SIMULAR
+          </button>
+        </a>
       </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="parcela"
-            >Em quantas parcelas deseja parcelar?</mat-label
-          >
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="parcela"
-            formControlName="parcela"
-          />
-          <mat-hint>Preencha no maximo 360 parcelas</mat-hint>
-          <mat-error *ngIf="imovel.get('parcela')?.hasError('parcelas')">
-            Preencha no maximo 360 parcelas
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <mat-divider class="divider"></mat-divider>
-
-    <div class="button">
-      <a routerLink="/proponente" class="cancelar">
-        <button mat-raised-button class="btn-1">VOLTAR</button>
-      </a>
-      <a class="submit">
-        <button
-          [disabled]="imovel.invalid"
-          type="submit"
-          mat-raised-button
-          class="btn-2"
-        >
-          SIMULAR
-        </button>
-      </a>
-    </div>
-  </mat-card>
-</form>
+    </mat-card>
+  </form>
+</section>
 
 {{ imovel.value | json }}
 {{ imovel.valid }}

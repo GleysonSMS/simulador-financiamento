@@ -1,29 +1,29 @@
-<h2 class="h2">Aprovado</h2>
+<h2 class="h2" tabindex="1">Aprovado</h2>
 <mat-card class="card">
   <div class="div">
-    <h1><b>Proposta N° 00001</b></h1>
-    <div>
-      <img class="img4" [src]="image" />
+    <p class="p" tabindex="2"><b>Proposta N° 00001</b></p>
+    <div tabindex="2">
+      <img class="img4" alt="status Aprovado" [src]="image" />
     </div>
 
     <mat-divider class="divider"></mat-divider>
 
-    <Section>
+    <Section tabindex="2">
       <p>
         <b>
-          • Taxa de 8% ao ano para correntistas<br />
-          • Taxa de 10% ao ano para não correntistas<br />
-          • Parcela inicial:
-          {{ parcelaInicial | currency: "BRL":"symbol":"1.2" }} <br />
-          • Valor total aprovado:
-          {{ valorTotalAprovado | currency: "BRL":"symbol":"1.2" }} <br />
-          • Seguro Só Vamu Security.<br />
-          • Desconto na primeira e na última parcela
+          <p>• Taxa de 8% ao ano para correntistas</p>
+          <p>• Taxa de 10% ao ano para não correntistas</p>
+          <p>• Parcela inicial:
+          {{ parcelaInicial | currency: "BRL":"symbol":"1.2" }} </p>
+          <p>• Valor total aprovado:
+          {{ valorTotalAprovado | currency: "BRL":"symbol":"1.2" }} </p>
+          <p> • Seguro Só Vamu Security.</p>
+          <p> • Desconto na primeira e na última parcela</p>
         </b>
       </p>
     </Section>
 
-    <div class="button">
+    <div class="button" tabindex="2">
       <a href="http://localhost:4200/inicial" class="voltar">
         <button mat-raised-button class="btn-1">Ir para tela inicial</button>
       </a>

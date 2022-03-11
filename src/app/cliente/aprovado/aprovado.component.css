@@ -1,6 +1,10 @@
 .h2 {
-  font-size: 100%;
+  font-size: 130%;
+  padding: 5px;
   margin-left: 1%;
+}
+.p{
+  font-size: 250%;
 }
 
 .div {
@@ -20,4 +24,5 @@
 .btn-1 {
   background-color: rgb(78, 4, 148);
   color: white;
+  width: 15%;
 }

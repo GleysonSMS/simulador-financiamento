@@ -1,189 +1,191 @@
-<h2 class="h2" tabindex="0"><b>Dados do Proponente</b></h2>
-<form class="form" [formGroup]="proponenteForm" (submit)="submitForm()">
-  <mat-card class="card">
-    <div class="container">
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="nome">Nome Completo </mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="nome"
-            formControlName="nome"
-          />
-          <mat-hint>Preencha com seu nome completo</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('nome')?.hasError('nome') &&
-              !proponenteForm.hasError('required')
-            "
-          >
-            Campo Obrigatório
-          </mat-error>
-        </mat-form-field>
+<section>
+  <h2 class="h2" tabindex="1"><b>Dados do Proponente</b></h2>
+  <form class="form" [formGroup]="proponenteForm" (submit)="submitForm()">
+    <mat-card class="card">
+      <div class="container">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="nome">Nome Completo </mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="nome"
+              formControlName="nome"
+            />
+            <mat-hint>Preencha com seu nome completo</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('nome')?.hasError('nome') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="profissao">Profissão</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="profissao"
+              formControlName="profissao"
+            />
+            <mat-hint>Preencha com sua profissão</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('profissao')?.hasError('profissao') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="cpf">CPF</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="cpf"
+              formControlName="cpf"
+              [imask]="{ mask: '000.000.000-00' }"
+              placeholder="999.999.999-99"
+            />
+            <mat-hint>Preencha com seu CPF</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('cpf')?.hasError('cpf') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              CPF deve ter 11 dígitos
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="email">Email</mat-label>
+            <input
+              matInput
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+            <mat-hint>Preencha com um Email Válido</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('email')?.hasError('email') &&
+                !proponenteForm.hasError('required')
+              "
+              placeholder="exemplo@exemplo.com.br"
+            >
+              Preencha com um Email válido
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="data">Data de Nascimento</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="data"
+              formControlName="data"
+              [imask]="{ mask: '00/00/0000' }"
+              placeholder="99/99/9999"
+            />
+            <mat-hint>Preencha com sua data de Nascimento</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('data')?.hasError('idade') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              Preencha com uma data de Nascimento válida
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="cep">CEP</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="cep"
+              formControlName="cep"
+              [imask]="{ mask: '00000-000' }"
+              placeholder="99999-999"
+            />
+            <mat-hint>Preencha com o Cep</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('cep')?.hasError('cep') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              Cep deve conter 8 digítos
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label for="telefone">Celular</mat-label>
+            <input
+              matInput
+              type="tel"
+              class="form-control"
+              id="telefone"
+              formControlName="telefone"
+              [imask]="{ mask: '(00)00000-0000' }"
+              placeholder="(99)99999-9999"
+            />
+            <mat-hint>Preencha com seu celular</mat-hint>
+            <mat-error
+              *ngIf="
+                proponenteForm.get('telefone')?.hasError('telefone') &&
+                !proponenteForm.hasError('required')
+              "
+            >
+              Preencha com seu celular
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="profissao">Profissão</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="profissao"
-            formControlName="profissao"
-          />
-          <mat-hint>Preencha com sua profissão</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('profissao')?.hasError('profissao') &&
-              !proponenteForm.hasError('required')
-            "
+      <mat-divider class="divider"></mat-divider>
+
+      <div class="button">
+        <a routerLink="/inicial" class="cancelar">
+          <button mat-raised-button class="btn-1">Cancelar</button>
+        </a>
+        <a class="submit">
+          <button
+            [disabled]="proponenteForm.invalid"
+            type="submit"
+            mat-raised-button
+            class="btn-2"
           >
-            Campo Obrigatório
-          </mat-error>
-        </mat-form-field>
+            Continuar
+          </button>
+        </a>
       </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="cpf">CPF</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="cpf"
-            formControlName="cpf"
-            [imask]="{ mask: '000.000.000-00' }"
-            placeholder="999.999.999-99"
-          />
-          <mat-hint>Preencha com seu CPF</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('cpf')?.hasError('cpf') &&
-              !proponenteForm.hasError('required')
-            "
-          >
-            CPF deve ter 11 dígitos
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="email">Email</mat-label>
-          <input
-            matInput
-            type="email"
-            class="form-control"
-            id="email"
-            formControlName="email"
-          />
-          <mat-hint>Preencha com um Email Válido</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('email')?.hasError('email') &&
-              !proponenteForm.hasError('required')
-            "
-            placeholder="exemplo@exemplo.com.br"
-          >
-            Preencha com um Email válido
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="data">Data de Nascimento</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="data"
-            formControlName="data"
-            [imask]="{ mask: '00/00/0000' }"
-            placeholder="99/99/9999"
-          />
-          <mat-hint>Preencha com sua data de Nascimento</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('data')?.hasError('idade') &&
-              !proponenteForm.hasError('required')
-            "
-          >
-            Preencha com uma data de Nascimento válida
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="cep">CEP</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            id="cep"
-            formControlName="cep"
-            [imask]="{ mask: '00000-000' }"
-            placeholder="99999-999"
-          />
-          <mat-hint>Preencha com o Cep</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('cep')?.hasError('cep') &&
-              !proponenteForm.hasError('required')
-            "
-          >
-            Cep deve conter 8 digítos
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label for="telefone">Celular</mat-label>
-          <input
-            matInput
-            type="tel"
-            class="form-control"
-            id="telefone"
-            formControlName="telefone"
-            [imask]="{ mask: '(00)00000-0000' }"
-            placeholder="(99)99999-9999"
-          />
-          <mat-hint>Preencha com seu celular</mat-hint>
-          <mat-error
-            *ngIf="
-              proponenteForm.get('telefone')?.hasError('telefone') &&
-              !proponenteForm.hasError('required')
-            "
-          >
-            Preencha com seu celular
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <mat-divider class="divider"></mat-divider>
-
-    <div class="button">
-      <a routerLink="/inicial" class="cancelar">
-        <button mat-raised-button class="btn-1">Cancelar</button>
-      </a>
-      <a class="submit">
-        <button
-          [disabled]="proponenteForm.invalid"
-          type="submit"
-          mat-raised-button
-          class="btn-2"
-        >
-          Continuar
-        </button>
-      </a>
-    </div>
-  </mat-card>
-</form>
+    </mat-card>
+  </form>
+</section>
 {{ proponenteForm.value | json }}
 {{ proponenteForm.valid }}

@@ -1,4 +1,25 @@
 {
   "proposta": [
+    {
+      "dados": {
+        "proponente": {
+          "nome": "GLEYSON SIDNEY MELLO SANTOS",
+          "profissao": "Padeiro",
+          "cpf": "123.772.946-77",
+          "email": "gleyson80@hotmail.com",
+          "data": "01/09/1990",
+          "cep": "37490-000",
+          "telefone": "(35)98455-6159"
+        },
+        "imovel": {
+          "tipoImovel": "residencial",
+          "renda": "12000",
+          "valorimovel": "100000",
+          "valorEntrada": "20000",
+          "parcela": "360"
+        }
+      },
+      "id": 1
+    }
   ]
 }
